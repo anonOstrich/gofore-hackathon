@@ -1,6 +1,6 @@
 from flask import Flask, render_template, jsonify, request
 from find_info import get_name_info_xlsx
-app = Flask(__name__, template_folder="./static/html")
+app = Flask(__name__, template_folder="./frontend/build/")
 
 notes = [
     {
@@ -25,10 +25,10 @@ def index():
 def json_notes():
     return jsonify(notes)
 
+
 @app.route("/api/names/<name>")
 def json_names(name):
     return get_name_info_xlsx(name)
-
 
 
 if __name__ == '__main__':
