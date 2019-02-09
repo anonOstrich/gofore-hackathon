@@ -11,8 +11,10 @@ const App = () => {
   const birthYearField = useField('number')
   const [nameInfo, setNameInfo] = useState(null)
   const [birthYearInfo, setBirthYearInfo] = useState(null)
+  const [waitingForResults, setWaitingForResults] = useState(false)
 
   const handleSubmit = async (event) => {
+    setWaitingForResults(true)
     setNameInfo(null)
     setBirthYearInfo(null)
     event.preventDefault()
@@ -33,6 +35,7 @@ const App = () => {
     }
     nameField.clear()
     birthYearField.clear()
+    setWaitingForResults(false)
   }
 
 
@@ -43,6 +46,8 @@ const App = () => {
       borderWidth: 1,
       marginBottom: 5
     }
+
+  
   
 
   return (
@@ -52,7 +57,10 @@ const App = () => {
       <form onSubmit={handleSubmit}>
         Nimi: <input {...onlyFormAttributes(nameField)} /><br/>
         Syntymävuosi: <input {...onlyFormAttributes(birthYearField)}/><br/>
-        <button type="submit">hae</button>
+        {waitingForResults ? 
+          <button type="submit" disabled>hae</button> 
+          : <button type="submit">hae</button>
+        }
       </form>
       </div>
       { nameInfo && <NameInformation name={nameInfo.name} number={nameInfo.number}  style={infoStyle}/>} 
