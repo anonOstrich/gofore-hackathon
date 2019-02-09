@@ -9,7 +9,7 @@ const BirthYearInformation = (props) => {
 
 
   return(
-    <div>
+    <div style={props.infoStyle}>
     Tietoja vuodesta {birthYear}
     </div>
   )

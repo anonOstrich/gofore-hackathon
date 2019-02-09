@@ -55,8 +55,8 @@ const App = () => {
         <button type="submit">hae</button>
       </form>
       </div>
-      { nameInfo && <NameInformation name={nameInfo.name} number={nameInfo.number}/>} 
-      { birthYearInfo && <BirthYearInformation birthYear={birthYearInfo}/>}
+      { nameInfo && <NameInformation name={nameInfo.name} number={nameInfo.number}  style={infoStyle}/>} 
+      { birthYearInfo && <BirthYearInformation birthYear={birthYearInfo} style={infoStyle}/>}
     </div>
   )
 }
