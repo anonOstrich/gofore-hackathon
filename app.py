@@ -51,7 +51,7 @@ def serve_manifest():
 
 @app.route("/index.css")
 def serve_css():
-return send_file("./frontend/build/index.css", mimetype="text/css")
+    return send_file("./frontend/build/index.css", mimetype="text/css")
 
 if __name__ == '__main__':
     app.run(debug=True)
