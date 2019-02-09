@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import NameInformation from './components/NameInformation'
+import Togglable from './components/Togglable'
 import BirthYearInformation from './components/BirthYearInformation'
 import nameService from './services/nameService'
 import yearService from './services/yearService'
 import useField, { onlyFormAttributes } from './hooks/UseField'
+
  
 
 const App = () => {
@@ -63,8 +65,12 @@ const App = () => {
         }
       </form>
       </div>
-      { nameInfo && <NameInformation name={nameInfo.name} number={nameInfo.number}  style={infoStyle}/>} 
+      <Togglable>
+        { nameInfo && <NameInformation name={nameInfo.name} number={nameInfo.number}  style={infoStyle}/>} 
+      </Togglable>
+      <Togglable>
       { birthYearInfo && <BirthYearInformation birthYear={birthYearInfo} style={infoStyle}/>}
+      </Togglable>
     </div>
   )
 }
