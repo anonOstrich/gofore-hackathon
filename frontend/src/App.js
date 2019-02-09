@@ -36,6 +36,15 @@ const App = () => {
   }
 
 
+  const infoStyle = {
+      paddingTop: 10,
+      paddingLeft: 2,
+      border: 'solid',
+      borderWidth: 1,
+      marginBottom: 5
+    }
+  
+
   return (
     <div>
     <div>
@@ -46,10 +55,8 @@ const App = () => {
         <button type="submit">hae</button>
       </form>
       </div>
-      { nameInfo && <NameInformation name={nameInfo.name} number={nameInfo.number}/>}
-      { birthYearInfo && <BirthYearInformation birthYear={birthYearInfo}/>}
-      
-
+      { nameInfo && <NameInformation name={nameInfo.name} number={nameInfo.number}  style={infoStyle}/>} 
+      { birthYearInfo && <BirthYearInformation birthYear={birthYearInfo} style={infoStyle}/>}
     </div>
   )
 }
