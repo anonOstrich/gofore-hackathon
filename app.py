@@ -1,6 +1,6 @@
 from flask import Flask, render_template, jsonify, request
 from find_info import get_name_info_xlsx
-app = Flask(__name__, template_folder="./static")
+app = Flask(__name__, template_folder="./static/html")
 
 notes = [
     {
