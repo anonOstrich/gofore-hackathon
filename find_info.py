@@ -13,8 +13,3 @@ def get_name_info_xlsx(name="Tomi"):
                 if cell.value.lower() == name.lower():
                     count = max(count, sheet['B' + str(idx+1)].value)
     return count
-
-c = get_name_info_xlsx()
-print(c)
-if c < 5000 and c != 0:
-    print("You're special snowflake!")
