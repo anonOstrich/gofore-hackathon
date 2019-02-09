@@ -1,5 +1,6 @@
 from flask import Flask, render_template, jsonify, request
-from find_info import get_name_info_xlsx
+from find_info import get_name_info_xlsx, name_xlsx_to_dict
+
 app = Flask(__name__, template_folder="./static/html")
 
 notes = [
@@ -15,6 +16,7 @@ notes = [
     },
 ]
 
+names = name_xlsx_to_dict('data/etunimitilasto-2019-01-07-vrk.xlsx')
 
 @app.route("/")
 def index():
@@ -27,9 +29,11 @@ def json_notes():
 
 @app.route("/api/names/<name>")
 def json_names(name):
-    return get_name_info_xlsx(name)
-
-
+    count = names.get(name.lower())
+    if count != None:
+        return str(count)
+    else:
+        return "0"
 
 if __name__ == '__main__':
     app.run(debug=True)
