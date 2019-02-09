@@ -27,8 +27,6 @@ def json_notes():
 
 @app.route("/api/names/<name>")
 def json_names(name):
-    #name = request.args.get('name')
-    #print("moi")
     return get_name_info_xlsx(name)
 
 
