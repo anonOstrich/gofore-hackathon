@@ -1,14 +1,17 @@
-# gofore-hackathon
-Hackathon
-https://gofore.herokuapp.com/
+# gofore-hackathon  
+Gofore hackathon 2019  
+https://gofore.herokuapp.com/  
 
+## Installation:  
+### Install python 3  
+https://www.python.org/  
 
-Create python 3 virtual environment
-https://realpython.com/python-virtual-environments-a-primer/#using-virtual-environments
-python -m venv env
+### Create a python 3 virtual environment  
+python -m venv {name of environment}  
+https://realpython.com/python-virtual-environments-a-primer/#using-virtual-environments  
 
-Install requirements
-pip install -r requirements.txt
+### Install requirements  
+pip install -r requirements.txt  
 
-Run server with command
-python app.py
+### Run server  
+python app.py  

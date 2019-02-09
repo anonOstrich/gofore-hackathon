@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = '/api/years/'
+const baseUrl = '/api/years'
 
 
 const yearService = {
