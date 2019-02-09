@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify, request, send_file
-from find_info import get_name_info_xlsx, name_xlsx_to_dict
+from find_info import name_xlsx_to_dict, family_xlsx_to_dict
 
 app = Flask(__name__, template_folder="./frontend/build/")
 
@@ -17,6 +17,7 @@ notes = [
 ]
 
 names = name_xlsx_to_dict('data/etunimitilasto-2019-01-07-vrk.xlsx')
+families = family_xlsx_to_dict('data/perh_006_201700.xlsx')
 
 @app.route("/")
 def index():
@@ -37,6 +38,12 @@ def json_names(name):
         return "0"
 
 
+@app.route("/api/family/<year>/<status>")
+def json_family(year, status):
+    age = 2017 - int(year) # the data is from 2017
+    return str(round(families[age][int(status)],2))
+
+
 @app.route("/manifest.json")
 def serve_manifest():
     return send_file("./frontend/build/manifest.json", mimetype="application/json")
@@ -44,8 +51,7 @@ def serve_manifest():
 
 @app.route("/index.css")
 def serve_css():
-    return send_file("./frontend/build/index.css", mimetype="text/css")
-
+return send_file("./frontend/build/index.css", mimetype="text/css")
 
 if __name__ == '__main__':
     app.run(debug=True)
