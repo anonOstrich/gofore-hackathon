@@ -40,7 +40,12 @@ def json_names(name):
 @app.route("/manifest.json")
 def serve_manifest():
     return send_file("./frontend/build/manifest.json", mimetype="application/json")
-        
+
+
+@app.route("/index.css")
+def serve_css():
+    return send_file("./frontend/build/index.css", mimetype="text/css")
+
 
 if __name__ == '__main__':
     app.run(debug=True)
