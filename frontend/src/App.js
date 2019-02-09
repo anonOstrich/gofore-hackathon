@@ -57,11 +57,17 @@ const App = () => {
     <div>
     <h1>Syötä tietoja</h1>
       <form onSubmit={handleSubmit}>
-        Nimi: <input {...onlyFormAttributes(nameField)} /><br/>
-        Syntymävuosi: <input {...onlyFormAttributes(birthYearField)}/><br/>
+        <div class="form-group">
+          <label for="name">Nimi:</label><br/>
+          <input {...onlyFormAttributes(nameField)} /><br/>
+        </div>
+        <div class="form-group">
+          <label for="birthyear">Syntymävuosi:</label><br/>
+          <input {...onlyFormAttributes(birthYearField)}/><br/>
+        </div>
         {waitingForResults ? 
-          <button type="submit" disabled>hae</button> 
-          : <button type="submit">hae</button>
+          <button type="submit" disabled>Hae</button> 
+          : <button type="submit">Hae</button>
         }
       </form>
       </div>
