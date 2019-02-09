@@ -1,4 +1,5 @@
-from flask import Flask, render_template, jsonify
+from flask import Flask, render_template, jsonify, request
+from find_info import get_name_info_xlsx
 app = Flask(__name__, template_folder="./static")
 
 notes = [
@@ -23,6 +24,13 @@ def index():
 @app.route("/api/notes")
 def json_notes():
     return jsonify(notes)
+
+@app.route("/api/names/<name>")
+def json_names(name):
+    #name = request.args.get('name')
+    #print("moi")
+    return get_name_info_xlsx(name)
+
 
 
 if __name__ == '__main__':

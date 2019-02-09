@@ -1,5 +1,8 @@
 from openpyxl import load_workbook
 
+def simple():
+    return str(200)
+
 def get_name_info_xlsx(name="Tomi"):
     book = load_workbook('data/etunimitilasto-2019-01-07-vrk.xlsx')
     count = 0
@@ -12,4 +15,4 @@ def get_name_info_xlsx(name="Tomi"):
             for cell in row:
                 if cell.value.lower() == name.lower():
                     count = max(count, sheet['B' + str(idx+1)].value)
-    return count
+    return str(count)
