@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import InputField from './components/InputField'
 import NameInformation from './components/NameInformation'
-//import nameService from './services/nameService'
-import nameService from './services/__mocks__/nameService'
+import nameService from './services/nameService'
+//import nameService from './services/__mocks__/nameService'
  
 
 const App = () => {
