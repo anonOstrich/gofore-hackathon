@@ -55,7 +55,8 @@ const App = () => {
       setBirthYearInfo({
         year: birthYearField.value, 
       })
-      setMaritalStatusInfo({
+
+      setMaritalStatusData({
         status: maritalStatusValue,
         data: data
       })
@@ -91,6 +92,12 @@ const App = () => {
         <div class="form-group">
           <label for="birthyear">Syntymävuosi:</label><br/>
           <input {...onlyFormAttributes(birthYearField)}/><br/>
+        </div>
+        <div class ="form-group">
+          <label>Marital status</label>
+          <MaritalStatusField value={maritalStatusValue} onChange={(event) => {
+            setMaritalStatusValue(event.target.value)
+          }}/>
         </div>
 
         {waitingForResults ? 
