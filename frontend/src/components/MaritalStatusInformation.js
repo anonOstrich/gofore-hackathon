@@ -1,9 +1,12 @@
 import React from 'react'
 
 const MaritalStatusInformation = (props) => {
+  const status = props.maritalStatusData.status
+  const data = props.maritalStatusData.data
 
-
-  return(<div>Saatat olla naimisissa</div>)
+  return(<div>
+  {data}
+  </div>)
 }
 
 
