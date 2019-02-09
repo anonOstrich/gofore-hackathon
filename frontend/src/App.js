@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import NameInformation from './components/NameInformation'
 import BirthYearInformation from './components/BirthYearInformation'
-//import nameService from './services/nameService'
-import nameService from './services/__mocks__/nameService'
+import nameService from './services/nameService'
+import yearService from './services/yearService'
 import useField, { onlyFormAttributes } from './hooks/UseField'
  
 
@@ -16,14 +16,20 @@ const App = () => {
     setNameInfo(null)
     setBirthYearInfo(null)
     event.preventDefault()
-    if(nameField.value != ''){
+    if(nameField.value !== ''){
       const number = await nameService.getByName(nameField.value)
       const name =  nameField.value
       setNameInfo({name, number})
     }
 
     if(birthYearField.value !== ''){
-      setBirthYearInfo(birthYearField.value)
+      const data = await yearService.getByYear(birthYearField.value)
+      setBirthYearInfo({
+        year: birthYearField.value, 
+        data: data
+      })
+
+
     }
     nameField.clear()
     birthYearField.clear()

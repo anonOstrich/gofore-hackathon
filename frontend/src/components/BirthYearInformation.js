@@ -4,13 +4,13 @@ import React from 'react'
 
 
 const BirthYearInformation = (props) => {
-  const year = props.year
-
+  const birthYearData = props.birthYear
+  const birthYear = birthYearData.year
 
 
   return(
     <div>
-      Vuotena { year } syntyneistä monet ansaitsevat paremmin kuin sinä
+      Vuotena { birthYear } syntyneistä monet ansaitsevat paremmin kuin sinä
     </div>
   )
 }
