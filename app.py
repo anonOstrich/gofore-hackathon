@@ -41,8 +41,10 @@ def json_names(name):
 @app.route("/api/family/<year>/<status>")
 def json_family(year, status):
     age = 2017 - int(year) # the data is from 2017
-    return str(round(families[age][int(status)],2))
-
+    if age < 112 and age >= 0:
+        return str(round(families[age][int(status)],2))
+    else:
+        return "0"
 
 @app.route("/manifest.json")
 def serve_manifest():
