@@ -1,22 +1,5 @@
 from openpyxl import load_workbook
 
-def simple():
-    return str(200)
-
-def get_name_info_xlsx(name="Tomi"):
-    book = load_workbook('data/etunimitilasto-2019-01-07-vrk.xlsx')
-    count = 0
-    idxs = [1, 4]
-    for sheet_index in idxs:
-        sheet = book.worksheets[sheet_index]
-        for idx, row in enumerate(sheet.iter_rows(min_row=2, min_col=1, max_row=10000, max_col=1)):
-            if row[0].value == None:
-                break
-            for cell in row:
-                if cell.value.lower() == name.lower():
-                    count = max(count, sheet['B' + str(idx+1)].value)
-    return str(count)
-
 def name_xlsx_to_dict(filename):
     dict = {}
     book = load_workbook(filename)
@@ -33,5 +16,18 @@ def name_xlsx_to_dict(filename):
                     dict[this_name] = this_count
             else:
                 dict[this_name] = this_count
-
     return dict
+
+def family_xlsx_to_dict(filename):
+    family_list = []
+    book = load_workbook(filename)
+    sheet = book.worksheets[0]
+    for row in sheet.iter_rows(min_row=6, min_col=3, max_row=112, max_col=12):
+        info = []
+        sum = row[1].value
+        for idx, cell in enumerate(row):
+            if idx >= 2:
+                percentage = float(cell.value)/sum * 100
+                info.append(percentage)
+        family_list.append(info)
+    return family_list
