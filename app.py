@@ -1,7 +1,7 @@
 from flask import Flask, render_template, jsonify, request
 from find_info import get_name_info_xlsx, name_xlsx_to_dict
 
-app = Flask(__name__, template_folder="./static/html")
+app = Flask(__name__, template_folder="./frontend/build/")
 
 notes = [
     {
@@ -26,6 +26,7 @@ def index():
 @app.route("/api/notes")
 def json_notes():
     return jsonify(notes)
+
 
 @app.route("/api/names/<name>")
 def json_names(name):
