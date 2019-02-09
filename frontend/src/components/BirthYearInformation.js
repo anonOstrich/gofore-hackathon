@@ -10,7 +10,7 @@ const BirthYearInformation = (props) => {
 
   return(
     <div>
-      Vuotena { birthYear } syntyneistä monet ansaitsevat paremmin kuin sinä
+    Tietoja vuodesta {birthYear}
     </div>
   )
 }
