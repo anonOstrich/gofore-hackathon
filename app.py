@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request, send_file
 from find_info import get_name_info_xlsx, name_xlsx_to_dict
 
 app = Flask(__name__, template_folder="./frontend/build/")
@@ -35,6 +35,12 @@ def json_names(name):
         return str(count)
     else:
         return "0"
+
+
+@app.route("/manifest.json")
+def serve_manifest():
+    return send_file("./frontend/build/manifest.json", mimetype="application/json")
+        
 
 if __name__ == '__main__':
     app.run(debug=True)
